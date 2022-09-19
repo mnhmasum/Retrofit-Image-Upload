@@ -7,4 +7,5 @@
 
     <!-- Resources for Bank2LogInActivity -->
     <color name="bank2_log_in_activity_button_button_background_color">#EFF2F6</color>
+    <color name="bg">#246EE9</color>
 </resources>

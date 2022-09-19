@@ -2,6 +2,7 @@ package com.hinext.software;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -15,16 +16,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.hinext.software.ModelClass.Datum;
 import com.hinext.software.ModelClass.EventModel;
+import com.hinext.software.ModelClass.Example;
 import com.hinext.software.ModelClass.ResponseModel;
 import com.hinext.software.NetworkRelatedClass.NetworkCall;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,21 +100,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void uploadButtonClicked(View view) {
+
+        if (nameEditText.getText().toString().length() == 0) {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("Please enter Vehicle Number");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+            return;
+        }
+
         responseTextView.setText("Uploading. Please wait...");
+        uploadButton.setVisibility(View.INVISIBLE);
         String vname = nameEditText.getText().toString();
         //int age = Integer.parseInt(ageEditText.getText().toString());
-        NetworkCall.fileUpload(filePath, vname, 2, 22);
+        NetworkCall.fileUpload(filePath, vname, LoginActivity.officeNo, LoginActivity.userId);
         NetworkCall.setListener(new NetworkCall.CallBack() {
+            @Override
+            public void onSuccess(Example responseModel) {
+
+            }
+
             @Override
             public void onSuccess(ResponseModel responseModel) {
                 responseTextView.setText(responseModel.messages.success);
-                Toast.makeText(MainActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
+                uploadButton.setVisibility(View.VISIBLE);
+                //Toast.makeText(MainActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
                 //finish();
             }
 
             @Override
             public void onFailed(String message) {
-
+                responseTextView.setText("Upload failed");
+                uploadButton.setVisibility(View.VISIBLE);
             }
         });
     }

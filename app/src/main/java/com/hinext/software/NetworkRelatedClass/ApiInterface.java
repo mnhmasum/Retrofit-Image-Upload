@@ -1,6 +1,10 @@
 package com.hinext.software.NetworkRelatedClass;
 
+import com.hinext.software.ModelClass.Datum;
+import com.hinext.software.ModelClass.Example;
 import com.hinext.software.ModelClass.ResponseModel;
+
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -27,7 +31,6 @@ public interface ApiInterface {
             @Field("username") String vehicleno,
             @Field("password") String office);
 
-    @FormUrlEncoded
-    @POST("view")
-    Call<ResponseModel> show(@Path("id") String userId);
+    @POST("view/{user_id}")
+    Call<Example> show(@Path("user_id") int user_id);
 }
