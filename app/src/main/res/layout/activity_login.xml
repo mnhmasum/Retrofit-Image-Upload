@@ -190,6 +190,16 @@
                             tools:layout_editor_absoluteY="48dp" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textViewLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    app:layout_constraintBottom_toTopOf="@+id/inputs_constraint_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/welcom_back_log_in_text_view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

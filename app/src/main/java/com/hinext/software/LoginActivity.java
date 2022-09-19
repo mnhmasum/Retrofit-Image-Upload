@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,11 +21,13 @@ public class LoginActivity extends AppCompatActivity {
         Button login = findViewById(R.id.button_two_button);
         EditText username = findViewById(R.id.edtUserName);
         EditText password = findViewById(R.id.editPassword);
+        TextView status = findViewById(R.id.textViewLoading);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                status.setText("Please wait...");
+                login.setVisibility(View.INVISIBLE);
                 NetworkCall.login(username.getText().toString(), password.getText().toString());
                 NetworkCall.setListener(new NetworkCall.CallBack() {
                     @Override
@@ -35,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailed(String message) {
-
+                        login.setVisibility(View.VISIBLE);
                     }
                 });
             }

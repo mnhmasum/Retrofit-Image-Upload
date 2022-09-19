@@ -94,14 +94,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void uploadButtonClicked(View view) {
+        responseTextView.setText("Uploading. Please wait...");
         String vname = nameEditText.getText().toString();
         //int age = Integer.parseInt(ageEditText.getText().toString());
         NetworkCall.fileUpload(filePath, vname, 2, 22);
         NetworkCall.setListener(new NetworkCall.CallBack() {
             @Override
             public void onSuccess(ResponseModel responseModel) {
+                responseTextView.setText(responseModel.messages.success);
                 Toast.makeText(MainActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
-                finish();
+                //finish();
             }
 
             @Override

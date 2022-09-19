@@ -19,7 +19,7 @@ import retrofit2.Response;
 public class NetworkCall {
 
     static CallBack callBack;
-    interface CallBack {
+    public interface CallBack {
         void onSuccess(ResponseModel responseModel);
         void onFailed(String message);
     }
@@ -75,13 +75,13 @@ public class NetworkCall {
         ApiInterface apiInterface = RetrofitApiClient.getClient().create(ApiInterface.class);
         Logger.addLogAdapter(new AndroidLogAdapter());
 
-        File file = new File(filePath);
+        /*File file = new File(filePath);
         //create RequestBody instance from file
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file); //allow image and any other file
 
         // MultipartBody.Part is used to send also the actual file name
         MultipartBody.Part body = MultipartBody.Part.createFormData("image1", file.getName(), requestFile);
-
+*/
         Gson gson = new Gson();
         //String patientData = gson.toJson(imageSenderInfo);
 
