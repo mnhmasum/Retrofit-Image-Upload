@@ -13,7 +13,7 @@
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -47,25 +47,24 @@
 
                 <TextView
                     android:id="@+id/welcom_back_log_in_text_view"
-                    android:layout_width="295dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-4dp"
-                    android:gravity="start"
+                    android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:text="Welcome Back"
+                    android:paddingHorizontal="16dp"
+                    android:text="Welcome To\nBangladesh Road Transport Authority (BRTA) Decal Sticker management system"
                     android:textColor="#19224C"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="40dp"
-                    tools:layout_editor_absoluteY="-5dp" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/inputs_constraint_layout"
                     android:layout_width="295dp"
                     android:layout_height="173dp"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/welcom_back_log_in_text_view"
@@ -119,10 +118,10 @@
                             android:layout_marginTop="23dp"
                             android:background="#00000000"
                             android:gravity="start|center_vertical"
-                            android:hint="lori.johnson@gmail.com"
+                            android:hint="Enter user"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
-                            android:text="masum"
+                            android:text=""
                             android:textColor="#19224C"
                             android:textColorHint="#D0D1D5"
                             android:textSize="18sp"
@@ -181,7 +180,7 @@
                             android:gravity="start|center_vertical"
                             android:inputType="textPassword"
                             android:maxLines="1"
-                            android:text="123456"
+                            android:text=""
                             android:textColor="#000000"
                             android:textSize="16sp"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -191,24 +190,13 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/textViewLoading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/color_accent"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toTopOf="@+id/inputs_constraint_layout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/welcom_back_log_in_text_view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header_constraint_layout"
             android:layout_width="0dp"
-            android:layout_height="110dp"
+            android:layout_height="120dp"
             android:background="#19224C"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -216,6 +204,20 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/brta_logo" />
 
             <TextView
                 android:id="@+id/login_text_view"
@@ -242,6 +244,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 tools:layout_editor_absoluteX="40dp"
                 tools:layout_editor_absoluteY="107dp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
